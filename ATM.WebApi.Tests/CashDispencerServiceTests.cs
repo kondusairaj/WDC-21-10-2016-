@@ -9,7 +9,7 @@ namespace ATM.WebApi.Tests
     public class CashDispencerServiceTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void MustFetchDenominations()
         {
             ICashDispencerService service = new CashDispencerService();
             var a = service.GetNoOfNotesAndDenomination(3500);
@@ -20,7 +20,7 @@ namespace ATM.WebApi.Tests
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void MustFailToFetchDenominations()
         {
             try
             {
@@ -30,8 +30,24 @@ namespace ATM.WebApi.Tests
             }
             catch (Exception e)
             {
-                Assert.IsTrue(true);
+                Assert.IsTrue(e.Message == "Money Cannot be Dispenced");
             }            
+        }
+
+
+        [TestMethod]
+        public void MustFailWithAmountLessthanOne()
+        {
+            try
+            {
+                ICashDispencerService service = new CashDispencerService();
+                var a = service.GetNoOfNotesAndDenomination(-10);
+                Assert.Fail();
+            }
+            catch (Exception e)
+            {
+                Assert.IsTrue(e.Message == "Amount cannot be less than or equal to zero.");
+            }
         }
     }
 }

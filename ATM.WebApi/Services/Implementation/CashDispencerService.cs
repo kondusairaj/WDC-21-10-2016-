@@ -13,6 +13,7 @@ namespace ATM.Services.Implementation
     {
         public List<CurrencyNote> GetNoOfNotesAndDenomination(int amount)
         {
+            if (amount <= 0) throw new Exception("Amount cannot be less than or equal to zero.");
             var cdHelper = CashDispencingHelper.GetInstance();
             List<CurrencyNote> currencyNotes = null;
             cdHelper.GetNoOfNotesAndCount(ref amount, ref currencyNotes, 
