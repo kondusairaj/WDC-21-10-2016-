@@ -1,11 +1,10 @@
-﻿using ATM.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ATM.Helpers;
+using ATM.Models;
 
-namespace ATM.Helpers
+namespace ATM.WebApi.Helpers
 {
     public class CashDispencingHelper
     {
@@ -39,8 +38,6 @@ namespace ATM.Helpers
 
         public void GetNoOfNotesAndCount(ref int amount, ref List<CurrencyNote> notes, CurrencyDenomination denomination)
         {
-            var cdhInstance = GetInstance();
-
             if (notes == null)
             {
                 notes = new List<CurrencyNote>();
