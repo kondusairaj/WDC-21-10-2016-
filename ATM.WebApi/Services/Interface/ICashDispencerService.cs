@@ -1,14 +1,11 @@
-﻿using ATM.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using ATM.Models;
 
-namespace ATM.Services.Interface
+namespace ATM.WebApi.Services.Interface
 {
     public interface ICashDispencerService
     {
         List<CurrencyNote> GetNoOfNotesAndDenomination(int amount);
+        List<string> GetAccountAndTransactionStatus(string operation, string accountType);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ATM.Helpers;
+using ATM.WebApi.Helpers;
 
 namespace ATM.WebApi.Tests
 {
